@@ -36,23 +36,22 @@
             #sidebar-box
             {
                 padding-block: 0px !important;
+                z-index: 3 !important;
 
                 #sidebar
                 {
-                    outline-offset: 0px !important;
+                    outline: none !important;
                     margin-block: 0px !important;
                     border-radius: 0px !important;
-                    box-shadow: none !important;
+                    box-shadow: var(--content-area-shadow) !important;
                 }
             }
 
             #tabbrowser-tabbox
             {
-                box-shadow: none !important;
-
-                #tabbrowser-tabpanels
+                .browserContainer
                 {
-                    clip-path: content-box !important;
+                    outline: none !important;
                 }
             }
         }
@@ -109,9 +108,6 @@
 
             #tabbrowser-tabbox
             {
-                outline: none !important;
-                box-shadow: none !important;
-
                 #tabbrowser-tabpanels
                 {
                     overflow: clip !important;
@@ -175,9 +171,6 @@
 
             #tabbrowser-tabbox
             {
-                outline: none !important;
-                box-shadow: none !important;
-
                 #tabbrowser-tabpanels
                 {
                     overflow: clip !important;
@@ -198,6 +191,63 @@
             #sidebar-main[sidebar-positionend]:not([hidden]) ~ #tabbrowser-tabbox > #tabbrowser-tabpanels
             {
                 margin-inline-end: 0px !important;
+            }
+        }
+    }
+}
+
+@media -moz-pref("WaveFox.VerticalTabs.WebPage.Floating", 4)
+{
+    :root:not([inFullscreen], [inDOMFullscreen])
+    {
+        .browser-toolbox-background:not(#navigator-toolbox)
+        {
+            overflow: clip !important;
+            border-top: 1px solid var(--chrome-content-separator-color) !important;
+            box-shadow: var(--content-area-shadow) !important;
+            background-clip: padding-box !important;
+            background-color: color-mix(in srgb, var(--sidebar-background-color) 75%, transparent) !important;
+
+            #sidebar-main
+            {
+                background-color: transparent !important;
+                color: var(--sidebar-text-color) !important;
+                border-radius: 0px !important;
+            }
+
+            #sidebar-launcher-splitter,
+            #sidebar-splitter
+            {
+                width: var(--splitter-width) !important;
+                margin-inline: calc(-1 * var(--splitter-width)) 0px !important;
+                border: none !important;
+
+                :is(#sidebar-main, #sidebar-box)[sidebar-positionend] + &
+                {
+                    margin-inline: 0px calc(-1 * var(--splitter-width)) !important;
+                }
+            }
+
+            #sidebar-box
+            {
+                padding-block: 0px !important;
+                z-index: 3 !important;
+
+                #sidebar
+                {
+                    outline: none !important;
+                    margin-block: 0px !important;
+                    border-radius: 0px !important;
+                    box-shadow: var(--content-area-shadow) !important;
+                }
+            }
+
+            #tabbrowser-tabbox
+            {
+                .browserContainer
+                {
+                    outline: none !important;
+                }
             }
         }
     }
