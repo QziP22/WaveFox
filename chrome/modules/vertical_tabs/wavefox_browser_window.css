@@ -246,11 +246,9 @@
 
             #tabbrowser-tabbox
             {
-                box-shadow: var(--content-area-shadow) !important;
-
-                #tabbrowser-tabpanels
+                .browserContainer
                 {
-                    clip-path: content-box !important;
+                    outline: none !important;
                 }
             }
         }
